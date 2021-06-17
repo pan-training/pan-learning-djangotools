@@ -2,6 +2,8 @@
 url patterns for simrunner
 """
 from django.conf.urls import url
+from django.conf.urls import include
+from django.urls import path
 from simrunner import views
 
 urlpatterns = [
@@ -22,6 +24,6 @@ urlpatterns = [
     url(r'^loginstatus/?$', views.login_status, name='login_status'),
     url(r'^loginslim-post/?$', views.login_slim_post, name='login_slim_post'),
     url(r'^logoutslim/?$', views.logout_slim, name='logout_slim'),
-    
+    path('tinymce/', include('tinymce.urls')), 
     url(r'^', views.home, name="home" ),
 ]
